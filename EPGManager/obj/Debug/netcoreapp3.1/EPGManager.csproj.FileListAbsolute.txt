@@ -1,0 +1,9 @@
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGManager\bin\Debug\netcoreapp3.1\EPGManager.deps.json
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGManager\bin\Debug\netcoreapp3.1\EPGManager.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGManager\bin\Debug\netcoreapp3.1\EPGManager.pdb
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGManager\obj\Debug\netcoreapp3.1\EPGManager.csprojAssemblyReference.cache
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGManager\obj\Debug\netcoreapp3.1\EPGManager.AssemblyInfoInputs.cache
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGManager\obj\Debug\netcoreapp3.1\EPGManager.AssemblyInfo.cs
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGManager\obj\Debug\netcoreapp3.1\EPGManager.csproj.CoreCompileInputs.cache
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGManager\obj\Debug\netcoreapp3.1\EPGManager.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGManager\obj\Debug\netcoreapp3.1\EPGManager.pdb

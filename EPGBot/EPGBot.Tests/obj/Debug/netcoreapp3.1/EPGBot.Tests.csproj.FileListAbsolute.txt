@@ -1,0 +1,5 @@
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot.Tests\obj\Debug\netcoreapp3.1\EPGBot.Tests.csprojAssemblyReference.cache
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot.Tests\obj\Debug\netcoreapp3.1\EPGBot.Tests.AssemblyInfoInputs.cache
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot.Tests\obj\Debug\netcoreapp3.1\EPGBot.Tests.AssemblyInfo.cs
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot.Tests\obj\Debug\netcoreapp3.1\EPGBot.Tests.csproj.CoreCompileInputs.cache
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot.Tests\obj\Debug\netcoreapp3.1\EPGBot.Tests.MvcApplicationPartsAssemblyInfo.cache
