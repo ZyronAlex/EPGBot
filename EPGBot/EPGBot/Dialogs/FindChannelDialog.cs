@@ -42,7 +42,7 @@ namespace EPGBot.Dialogs
         private async Task<DialogTurnResult> InitialStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             var ms = "Qual o nome do canal que você gostaria, se quiser me diga \"ver lista\"  ";
-            var promptMessage = MessageFactory.Text(HelpMsgText, HelpMsgText, InputHints.ExpectingInput);
+            var promptMessage = MessageFactory.Text(ms, ms, InputHints.ExpectingInput);
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
         }
 
@@ -55,7 +55,7 @@ namespace EPGBot.Dialogs
                 case "ver lista":
                     return await stepContext.BeginDialogAsync(nameof(ListChannelDialog), 0, cancellationToken);
                 default:
-                    var channel = _repository.GetChannel(channelName);
+                    var channel = await _repository.GetChannel(channelName);
                     if (channel == null)
                     {
                         var didntUnderstandMessageText = $"Me desculpa, Eu não entendi. Vamos tentar novamente ou digite \"sair\", para terminamos";
@@ -81,7 +81,7 @@ namespace EPGBot.Dialogs
             {
                 if (confimed)
                 {
-                    var channel = (Channel)stepContext.Options;
+                    var channel = (Channel)stepContext.Values["channel"];
                     return await stepContext.EndDialogAsync(channel.Id, cancellationToken);
                 }
                 else

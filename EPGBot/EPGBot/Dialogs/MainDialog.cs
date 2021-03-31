@@ -74,13 +74,6 @@ namespace EPGBot.Dialogs
                 case EPGCommands.Scheduler:
                     return await stepContext.BeginDialogAsync(nameof(ScheudleDialog), 0, cancellationToken);
 
-                case EPGCommands.Show:
-                    // We haven't implemented the GetWeatherDialog so we just display a TODO message.
-                    var messageText = "TODO: get weather flow here";
-                    var message = MessageFactory.Text(messageText, messageText, InputHints.IgnoringInput);
-                    await stepContext.Context.SendActivityAsync(message, cancellationToken);
-                    break;
-
                 default:
                     // Catch all for unhandled intents
                     var didntUnderstandMessageText = $"Me desculpa, Eu nao entendi. Por favor pergunte novamente (Tente usar umas das sugestões)";

@@ -18,7 +18,7 @@ namespace EPGBot.Dialogs
 {
     public class ScheduleChannelDialog : BaseDialog
     {
-        private const int pageSize = 10;
+        private const int pageSize = 4;
 
         private readonly IEPGRepository _repository;
         private readonly IStatePropertyAccessor<UserProfile> _userProfileAccessor;
@@ -103,7 +103,7 @@ namespace EPGBot.Dialogs
 
         private async Task<bool> ShowProgrammes(ScheduleChannelOptions scheduleChannelOptions, WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var programmes = _repository.ListProgramme(chanelId: scheduleChannelOptions.ChannelId, 
+            var programmes = await _repository.ListProgramme(chanelId: scheduleChannelOptions.ChannelId, 
                 currentPage: scheduleChannelOptions.CurrentPage, PageSize: pageSize, underage: userProfile.IsAdult);
 
             if (programmes.Any())

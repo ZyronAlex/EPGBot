@@ -9,7 +9,6 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,13 +20,9 @@ namespace EPGBot.Bots
     public class DialogAndWelcomeBot<T> : DialogBot<T>
         where T : Dialog
     {
-        public DialogAndWelcomeBot(ConversationState conversationState, UserState userState, IEPGService service,  T dialog, ILogger<DialogBot<T>> logger)
+        public DialogAndWelcomeBot(ConversationState conversationState, UserState userState,  T dialog, ILogger<DialogBot<T>> logger)
             : base(conversationState, userState, dialog, logger)
-        {
-            string currentDir = Environment.CurrentDirectory;
-            FileInfo directory = new FileInfo(Path.GetFullPath(Path.Combine(currentDir, @"Sources\EPG.xml")));        
-
-            service.ImporteEPG(directory.FullName);
+        {   
         }
 
         protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)

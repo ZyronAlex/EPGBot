@@ -18,7 +18,7 @@ namespace EPGBot.Models
                 Subtitle = programme.SubTitle,
                 Text = programme.Description +
                         $" \n Duração {programme.Start} : { programme.Stop}" +
-                        $" \n Categoria {string.Join(",", programme.Category)}.",
+                        $" \n Categoria {programme.Category}.",
                 Images = new List<CardImage> { new CardImage(programme.Icon) }
 
             }));

@@ -11,7 +11,7 @@ namespace EPGBot.Dialogs
 {
     public class ListChannelDialog : BaseDialog
     {
-        private const int pageSize = 10;
+        private const int pageSize = 2;
 
         private readonly IEPGRepository _repository;
         private readonly IStatePropertyAccessor<UserProfile> _userProfileAccessor;
@@ -85,7 +85,7 @@ namespace EPGBot.Dialogs
 
         private async Task<bool> ShowChannels(int currentPage, WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var channels = _repository.ListChannels(currentPage: currentPage, PageSize: pageSize, underage: userProfile.IsAdult);
+            var channels = await _repository.ListChannels(currentPage: currentPage, PageSize: pageSize, underage: userProfile.IsAdult);
 
             if (channels.Any())
             {

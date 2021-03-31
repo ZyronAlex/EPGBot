@@ -1,81 +1,101 @@
 ﻿using EPGManager.Interfaces;
 using EPGManager.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace EPGManager.Repositories
 {
     public class EPGRepository : IEPGRepository
     {
-        public Channel GetChannel(string chanelName)
+        protected readonly Context _context;
+        protected readonly ILogger _logger;
+
+        public EPGRepository(Context context, ILogger<EPGRepository> logger)
         {
-            return new Channel
-            {
-                Id = $"Zoomoo.br",
-                Name = $"Zoomoo BR",
-                Icon = "https://static.epg.best/br/Zoomoo.br.png"
-            };
+            _context = context;
+            _logger = logger;
         }
 
-        public List<Channel> ListChannels(int currentPage, int PageSize, bool underage)
+        public async Task AddChannels(List<Channel> channels)
         {
-            var channels = new List<Channel>();
-
-            if(currentPage <= 3)              
-            for (int i = 0 ; i < PageSize; i++)
+            try
             {
-                channels.Add(new Channel
-                {
-                    Id = $"Zoomoo.br",
-                    Name = $"Zoomoo BR{i}",
-                    Icon = "https://static.epg.best/br/Zoomoo.br.png"
-                });
+                _context.Channels.AddRange(channels);
+                await _context.SaveChangesAsync();
             }
-
-            return channels;
-        }
-
-        public List<Programme> ListProgramme(bool underage)
-        {
-            var programmes = new List<Programme>();
-            for (int i = 0; i < 50 ; i++)
+            catch (Exception e)
             {
-                programmes.Add(new Programme
-                {
-                    Start = DateTime.Parse("2021/03/26 00:05:00"),
-                    Stop = DateTime.Parse("2021/03/26 00:55:00"),
-                    ChannelId = "Zoomoo.br",
-                    Title = "CSI",
-                    SubTitle = "Split Decisions",
-                    Description = "Quando a equipe CSI é chamada para investigar um homem que é baleado à queima-roupa em um cassino local, eles fecham o prédio inteiro para encontrar seu assassino",
-                    Category = new string[] { "Séries", "Ação" },
-                    Icon = "https://cdn.mitvstatic.com/programs/br_csi-s12e19-split-decisions_l_m.jpg"
-                });
+                _logger.LogError(e.Message);
             }
-
-            return programmes;
         }
 
-        public List<Programme> ListProgramme(string chanelId, int currentPage, int PageSize, bool underage)
+        public async Task<Channel> GetChannel(string chanelName)
         {
-            var programmes = new List<Programme>();
-            for (int i = 0; i < PageSize; i++)
+            try
             {
-                programmes.Add(new Programme
-                {
-                    Start = DateTime.Parse("2021/03/26 00:05:00"),
-                    Stop = DateTime.Parse("2021/03/26 00:55:00"),
-                    ChannelId = "Zoomoo.br",
-                    Title = "CSI",
-                    SubTitle = "Split Decisions",
-                    Description = "Quando a equipe CSI é chamada para investigar um homem que é baleado à queima-roupa em um cassino local, eles fecham o prédio inteiro para encontrar seu assassino",
-                    Category = new string[] { "Séries", "Ação" },
-                    Icon = "https://cdn.mitvstatic.com/programs/br_csi-s12e19-split-decisions_l_m.jpg"
-                });
+                return await _context.Channels.SingleAsync(x => x.Name.Contains(chanelName));
             }
-
-            return programmes;
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return null;
+            }
         }
 
+        public async Task<List<Channel>> ListChannels(int currentPage, int PageSize, bool underage)
+        {
+            try
+            {
+                return await _context.Channels.Skip(currentPage * PageSize).Take(PageSize).ToListAsync();
+            }
+            catch(Exception e)
+            {
+                _logger.LogError(e.Message);
+                return new List<Channel>();
+            }
+        }
+
+        public async Task AddProgrammes(List<Programme> programmes)
+        {
+            try
+            {
+                _context.Programmes.AddRange(programmes);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+            }
+        }
+
+        public async Task<List<Programme>> ListProgramme(bool underage)
+        {
+            try
+            {
+                return await _context.Programmes.ToListAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return new List<Programme>();
+            }
+        }
+
+        public async Task<List<Programme>> ListProgramme(string chanelId, int currentPage, int PageSize, bool underage)
+        {
+            try
+            {
+                return await _context.Programmes.Where(x => x.ChannelId.Equals(chanelId)).Skip(currentPage * PageSize).Take(PageSize).ToListAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return new List<Programme>();
+            }
+        }
     }
 }

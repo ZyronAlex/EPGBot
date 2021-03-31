@@ -29,10 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Sources\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\EPGManager\EPGManager.csproj" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,9 @@
-﻿namespace EPGManager.Interfaces
+﻿using EPGManager.Models;
+
+namespace EPGManager.Interfaces
 {
     public interface IEPGService
     {
-        bool ImporteEPG(string filePath);
+        void ImporteEPG();
     }
 }

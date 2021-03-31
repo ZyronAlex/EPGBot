@@ -20,7 +20,9 @@ namespace EPGBot
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Context>(opt => opt.UseInMemoryDatabase("EPGBot"));
+            services.AddDbContext<Context>(
+            options => options.UseInMemoryDatabase("EPGBot"),
+            ServiceLifetime.Singleton);
 
             services.AddControllers().AddNewtonsoftJson();
 
@@ -52,7 +54,7 @@ namespace EPGBot
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IEPGService service)
         {
             if (env.IsDevelopment())
             {
@@ -68,8 +70,9 @@ namespace EPGBot
                 {
                     endpoints.MapControllers();
                 });
-
             // app.UseHttpsRedirection();
+
+            service.ImporteEPG();
         }
     }
 }

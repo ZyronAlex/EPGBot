@@ -62,8 +62,7 @@ namespace EPGBot.Dialogs
             var cardOptions = new List<Choice>()
             {
                 new Choice() { Value = EPGCommands.Channel, Synonyms = EPGCommands.ChannelSynonyms },
-                new Choice() { Value = EPGCommands.Scheduler, Synonyms =EPGCommands.SchedulerSynonyms },
-                new Choice() { Value = EPGCommands.Show, Synonyms = EPGCommands.ShowSynonyms },
+                new Choice() { Value = EPGCommands.Scheduler, Synonyms =EPGCommands.SchedulerSynonyms }
             };
 
             return cardOptions;

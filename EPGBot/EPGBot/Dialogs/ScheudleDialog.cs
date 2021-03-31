@@ -88,7 +88,7 @@ namespace EPGBot.Dialogs
 
         private async Task<ProgrammeResult> GetProgramme()
         {
-            var programme = _repository.ListProgramme(underage: userProfile.IsAdult);
+            var programme = await _repository.ListProgramme(underage: userProfile.IsAdult);
 
             return new ProgrammeResult(programme);
         }

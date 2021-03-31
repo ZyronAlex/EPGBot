@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EPGBot", "EPGBot\EPGBot\EPGBot.csproj", "{B422CBD4-C111-41BE-9319-16862F0FF16D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EPGBot.Tests", "EPGBot\EPGBot.Tests\EPGBot.Tests.csproj", "{D35260E2-096C-4347-A35D-6D3235B673DB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPGManager", "EPGManager\EPGManager.csproj", "{26FF0C26-CB3F-467A-98D1-3A1AFD3B6F82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EPGManager", "EPGManager\EPGManager.csproj", "{26FF0C26-CB3F-467A-98D1-3A1AFD3B6F82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{B422CBD4-C111-41BE-9319-16862F0FF16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B422CBD4-C111-41BE-9319-16862F0FF16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B422CBD4-C111-41BE-9319-16862F0FF16D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D35260E2-096C-4347-A35D-6D3235B673DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D35260E2-096C-4347-A35D-6D3235B673DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D35260E2-096C-4347-A35D-6D3235B673DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D35260E2-096C-4347-A35D-6D3235B673DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{26FF0C26-CB3F-467A-98D1-3A1AFD3B6F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{26FF0C26-CB3F-467A-98D1-3A1AFD3B6F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26FF0C26-CB3F-467A-98D1-3A1AFD3B6F82}.Release|Any CPU.ActiveCfg = Release|Any CPU

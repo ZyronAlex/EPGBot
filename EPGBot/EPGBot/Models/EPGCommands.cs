@@ -10,8 +10,5 @@ namespace EPGBot.Models
 
         public const string Scheduler = "Programação e horário do(s) Canai(s)";
         public static readonly List<string> SchedulerSynonyms = new List<string> { "Programação", "horário" };
-
-        public const string Show = "Atração";
-        public static readonly List<string> ShowSynonyms = new List<string> { "Show", "Série", "Filme" };
     }
 }
