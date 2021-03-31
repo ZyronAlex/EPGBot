@@ -41,7 +41,7 @@ namespace EPGBot.Dialogs
 
         private async Task<DialogTurnResult> InitialStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var ms = "Qual o nome do canal que você gostaria, se quiser me diga \"ver lista\"  ";
+            var ms = "Qual o nome do canal disponível em nossa lista você está procurando? Ou se quiser ver a lista de canais disponíveis, escreva \"ver lista\"  ";
             var promptMessage = MessageFactory.Text(ms, ms, InputHints.ExpectingInput);
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
         }
