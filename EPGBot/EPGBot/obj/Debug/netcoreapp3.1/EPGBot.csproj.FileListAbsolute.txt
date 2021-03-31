@@ -65,3 +65,17 @@ C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\obj\Debug\netcoreapp
 C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\obj\Debug\netcoreapp3.1\EPGBot.dll
 C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\obj\Debug\netcoreapp3.1\EPGBot.pdb
 C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\obj\Debug\netcoreapp3.1\EPGBot.genruntimeconfig.cache
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\alexf\Documents\Projetos\CI&T\EPGBot\EPGBot\EPGBot\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll

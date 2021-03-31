@@ -18,7 +18,7 @@ namespace EPGBot.Dialogs
         // Dependency injection uses this constructor to instantiate MainDialog
         public MainDialog(UserState userState, 
             UserProfileDialog userProfileDialog, 
-            ChannelDialog channelDialog, 
+            ListChannelDialog channelDialog, 
             ScheudleDialog scheudleDialog,
             ILogger<MainDialog> logger)
             : base(nameof(MainDialog))
@@ -69,7 +69,7 @@ namespace EPGBot.Dialogs
             switch (command)
             {
                 case EPGCommands.Channel:
-                    return await stepContext.BeginDialogAsync(nameof(ChannelDialog), 0, cancellationToken);
+                    return await stepContext.BeginDialogAsync(nameof(ListChannelDialog), 0, cancellationToken);
 
                 case EPGCommands.Scheduler:
                     return await stepContext.BeginDialogAsync(nameof(ScheudleDialog), 0, cancellationToken);

@@ -8,6 +8,8 @@ namespace EPGBot.Models
 {
     public class ChannelResult : EPGResult
     {
+        public ChannelResult(Channel channel) : this(new List<Channel>() { channel }) { }
+
         public ChannelResult(List<Channel> channels)
         {
             channelsCard = new List<HeroCard>();

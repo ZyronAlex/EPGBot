@@ -11,8 +11,8 @@ namespace EPGBot.Dialogs
 {
     public class BaseDialog : ComponentDialog
     {
-        protected string HelpMsgText;
-        protected string CancelMsgText;
+        protected string HelpMsgText = "Ainda não sei como te ajudar";
+        protected string CancelMsgText = "Obrigado por essa Conversar";
 
         public BaseDialog(string dialogId)
             : base(dialogId)

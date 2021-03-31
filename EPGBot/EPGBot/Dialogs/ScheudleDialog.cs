@@ -13,18 +13,18 @@ namespace EPGBot.Dialogs
 {
     public class ScheudleDialog : BaseDialog
     {
-        private readonly IEPGRepository _epgRepository;
+        private readonly IEPGRepository _repository;
         private readonly IStatePropertyAccessor<UserProfile> _userProfileAccessor;
         private UserProfile userProfile;
 
-        public ScheudleDialog(UserState userState, IEPGRepository epgRepository)
-            : base(nameof(UserProfileDialog))
+        public ScheudleDialog(UserState userState,
+            ScheduleChannelDialog scheduleChannelDialog,
+            IEPGRepository repository)
+            : base(nameof(ScheudleDialog))
         {
-            HelpMsgText = "";
-            CancelMsgText = "";
 
             _userProfileAccessor = userState.CreateProperty<UserProfile>(nameof(UserProfile));
-            _epgRepository = epgRepository;
+            _repository = repository;
 
             var scheduleWaterfallSteps = new WaterfallStep[]
            {
@@ -36,10 +36,7 @@ namespace EPGBot.Dialogs
 
             AddDialog(new TextPrompt(nameof(TextPrompt)));
             AddDialog(new ChoicePrompt(nameof(ChoicePrompt)));
-
-            //AddDialog(userProfileDialog);
-            //AddDialog(channelDialog);
-            //AddDialog(scheudleDialog);
+            AddDialog(scheduleChannelDialog);
 
             // The initial child Dialog to run.
             InitialDialogId = nameof(scheduleWaterfallSteps);
@@ -52,7 +49,7 @@ namespace EPGBot.Dialogs
             return await stepContext.PromptAsync(nameof(ChoicePrompt),
                    new PromptOptions
                    {
-                       Prompt = MessageFactory.Text("Você Deseja ?"),
+                       Prompt = MessageFactory.Text("O que você Deseja ?"),
                        Choices = GetScheduleChoices(),
                    }, cancellationToken);
         }
@@ -68,7 +65,7 @@ namespace EPGBot.Dialogs
                     return await stepContext.NextAsync(result, cancellationToken);
 
                 case ScheduleCommands.NowChannel:
-                    return await stepContext.BeginDialogAsync(nameof(ScheudleDialog), 0, cancellationToken);
+                    return await stepContext.BeginDialogAsync(nameof(ScheduleChannelDialog), new ScheduleChannelOptions(), cancellationToken);
 
                 default:
                     // Catch all for unhandled intents
@@ -83,17 +80,15 @@ namespace EPGBot.Dialogs
 
         private async Task<DialogTurnResult> FinalStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            if (stepContext.Result is IMessageActivity result)
+            if (stepContext.Result is ProgrammeResult result)
                 return await stepContext.EndDialogAsync(result, cancellationToken);
-
-            await stepContext.Context.SendActivityAsync(CancelMsgText, CancelMsgText, cancellationToken: cancellationToken);
 
             return await stepContext.EndDialogAsync(null, cancellationToken);
         }
 
         private async Task<ProgrammeResult> GetProgramme()
         {
-            var programme = _epgRepository.ListProgramme(underage: userProfile.IsAdult);
+            var programme = _repository.ListProgramme(underage: userProfile.IsAdult);
 
             return new ProgrammeResult(programme);
         }
